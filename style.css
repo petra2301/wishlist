@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap");
+
+/* Christmas bg: background-image: url(https://petragergely.dk/imgs/christmas.jpg); */
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+body {
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#addWish {
+  background-image: url(addbg1.jpg);
+  background-position: top center;
+}
+
+#housewarming {
+  background-image: url(housebg-min.jpg);
+  background-position: center center;
+}
+
+#petra {
+  background-image: url(https://petragergely.dk/imgs/petra-bday-bg.jpg);
+  background-position: top center;
+}
+
+#jakob {
+  background-image: url(https://petragergely.dk/imgs/jakob-bday-bg.jpg);
+  background-position: center center;
+}
+
+h1, h2,h3, h4, h5, h6, p, button, a, small, label, input {
+  font-family: "Poppins", Sans-serif;
+}
+
+.hero {
+  height: 75vh;
+  display: flex;
+  vertical-align: middle;
+  justify-content: center;
+  padding: 5px;
+}
+
+.frame {
+  padding: 30px;
+  border: 1px solid white;
+  max-width: 600px;
+  margin: auto;
+}
+
+ h1 {
+  color: #ffffff;
+  font-family: "Poppins", Sans-serif;
+  font-size: 4em;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  margin: 50px 0;
+  font-weight: 100; 
+} 
+
+h2 {
+  font-weight: 800;
+}
+
+p {
+  font-weight: 600;
+}
+
+.img-wrapper {
+  height: 200px;
+}
+
+.gift-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.hide {
+  display: none;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* bootstrap overrides */
+.bg-dark {
+  background-color: #242628eb!important;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 15px 0.25rem rgb(255 152 0 / 30%);
+}
+
+.form-check .form-check-input {
+  float: none;
+  margin-left: 0;
+}
+
+.form-check {
+  transition: .3s ease-in-out;
+}
+
+.form-check:hover {
+  background-color: #ffffff1a;
+}
+
+@media all and (max-width: 600px) {
+  .img-wrapper {
+    height: 100%;
+  }
+}

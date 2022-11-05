@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a wish</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body id="addWish">
+    <div class="container pt-5 pb-5">
+        <h1 class="text-light mb-5">Edit a wish here</h1>
+        <form id="selectWish">
+            
+        </form>
+            <form id="editForm" class="bg-dark p-5 rounded">
+                <div class="row">
+                    <div class="col-12 col-md-6 mb-3">
+                        <label class="form-label text-light" for="name">Wish name:</label>
+                        <input type="text" id="name" class="form-control">
+                    </div>
+                <div class="col-12 col-md-6 mb-3">
+                    <label for="desc" class="form-label text-light">Extra info about the wish (optional):</label>
+                <input type="text" id="desc" class="form-control">
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                    <label for="price" class="form-label text-light">Price:</label>
+                <input type="number" id="price" class="form-control">
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                    <label for="imgUrl" class="form-label text-light">Image URL:</label>
+                    <input type="text" class="form-control" id="imgUrl">
+                </div>
+                <div class="col-12 col-md-6 mb-5">
+                    <label for="link1" class="form-label text-light">Link:</label>
+                    <input type="text" class="form-control" id="link1">
+                </div>
+                <p class="small text-light">Additional links:</p>
+                <div class="col-12 col-md-4 mb-3">
+                    <label for="link2" class="form-label text-light">Link:</label>
+                <input type="text" class="form-control" id="link2">
+                </div>
+                <div class="col-12 col-md-4 mb-3">
+                    <label for="link3" class="form-label text-light">Link:</label>
+                <input type="text" class="form-control" id="link3">
+                </div>
+                <div class="col-12 col-md-4 mb-5">
+                    <label for="link4" class="form-label text-light">Link:</label>
+                <input type="text" class="form-control" id="link4">
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                    <p class="text-light">Which wishlist should it be added to?</p>
+                    <select name="whichList" id="whichList">
+                        <option value="housewarming">Housewarming</option>
+                        <option value="jakobslist">Jakob's wishlist</option>
+                        <option value="petraslist">Petra's wishlist</option>
+                    </select>
+
+                </div>
+            </div>
+            <button class="btn btn-light mt-3 d-block mx-auto" type="submit">Add wish</button>
+            </form>
+    </div>
+    <script src="addGifts.js"></script>
+    </body>
+
+</html>
