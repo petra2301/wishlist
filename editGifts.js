@@ -26,7 +26,7 @@ function getWish(wish) {
     const template = document.querySelector("template").content;
     const wishItem = template.cloneNode(true);
     const wishCard = wishItem.querySelector('div.wish-card');
-    wishCard.setAttribute('id', wish._id);
+    wishCard.setAttribute('data-wish-id', wish._id);
 
     const editBtn = wishItem.querySelector('button.edit-btn');
     editBtn.setAttribute('id', `edit-${wish._id}`);
@@ -69,10 +69,17 @@ function getWish(wish) {
     document.querySelector(".wishWrapper").append(wishItem);
 }
 
-// edit form
+// //#region edit form
 const editWishIdField = editForm.querySelector("#wishId");
 const editNameField = editForm.querySelector("#name");
 const editDescField = editForm.querySelector("#desc");
+const editPriceField = editForm.querySelector("#price");
+const editImgUrlField = editForm.querySelector("#imgUrl");
+const editLink1Field = editForm.querySelector("#link1");
+const editLink2Field = editForm.querySelector("#link2");
+const editLink3Field = editForm.querySelector("#link3");
+const editLink4Field = editForm.querySelector("#link4");
+const editWhichListField = editForm.querySelector('#whichList');
 
 editForm.addEventListener('submit', e => {
     e.preventDefault();
@@ -90,14 +97,16 @@ function fetchAndPopulate(id) {
   })
     .then(e => e.json())
     .then(wish => {
-        // console.log(id);
-        // console.log(wish.name);
         editWishIdField.value = wish._id;
         editNameField.value = wish.name;
         editDescField.value = wish.desc;
-    // const nameField = editForm.querySelector('#name');
-    // nameField.value = wish.name;
-    // console.log(nameField.value);
+        editPriceField.value = wish.price;
+        editImgUrlField.value = wish.imgUrl;
+        editLink1Field.value = wish.link1;
+        editLink2Field.value = wish.link2; 
+        editLink3Field.value = wish.link3;
+        editLink4Field.value = wish.link4;
+        editWhichListField.value = wish.whichList;
     });
 
     }
@@ -106,10 +115,15 @@ function fetchAndPopulate(id) {
         let data = {
             name: editNameField.value,
             desc: editDescField.value,
+            price: editPriceField.value,
+            imgUrl: editImgUrlField.value,
+            link1: editLink1Field.value,
+            link2: editLink2Field.value,
+            link3: editLink3Field.value,
+            link4: editLink4Field.value,
+            whichList: editWhichListField.value,
         };
-    
-        //let postData = JSON.stringify(data);
-    
+      
         const wishId = editWishIdField.value;
         console.log(wishId);
     
@@ -127,12 +141,10 @@ function fetchAndPopulate(id) {
     .then(d => d.json())
     .then( updatedWish => {
         console.log(updatedWish._id);
-        //const wishDiv = document.querySelector(`div#${updatedWish._id}`);
-        //const parentElement = document.querySelector(`article[data-hero-id="${updatedHero._id}"]`);
-        //console.log(wishDiv);
-        //wishDiv.querySelector("h2").textContent = updatedWish.name;
+        const wishDiv = document.querySelector(`div[data-wish-id="${updatedWish._id}"]`);
+        wishDiv.querySelector("h2").textContent = updatedWish.name;
           
-          editForm.reset();
+        editForm.reset();
     });
     }
 
