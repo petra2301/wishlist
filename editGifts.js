@@ -1,10 +1,50 @@
 "use strict";
 
-const selectList = document.querySelector("#whichList");
-const selectWish = document.querySelector("form#selectWish");
-const editForm = document.querySelector("form#editForm");
+//#region filter wishes
+const searchField = document.querySelector("input#search");
+searchField.addEventListener('keyup', searchForWish);
 
-// get all wishes 
+function searchForWish() {
+  let input, filter, h2, wishCard;
+  input = document.querySelector('#search');
+  filter = input.value.toUpperCase();
+  wishCard = document.querySelectorAll('.wish-card');
+
+  for (let i = 0; i < wishCard.length; i++) {
+    let h2 = wishCard[i].querySelector("h2.wish-name");
+    let txtValue = h2.textContent;
+     if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      wishCard[i].style.display = "";
+    } else {
+      wishCard[i].style.display = "none";
+    }
+  }
+}
+
+const selectList = document.querySelector("select#whichList");
+selectList.addEventListener('change',  e => {
+  const listName = e.target.value;
+  filterList(listName);
+});
+
+function filterList(listName) {
+  let filter, wishCard;
+  filter = listName.toUpperCase();
+  wishCard = document.querySelectorAll('.wish-card');
+
+  for (let i = 0; i < wishCard.length; i++) {
+    let span = wishCard[i].querySelector("span.list-name");
+    let txtValue = span.textContent;
+     if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      wishCard[i].style.display = "";
+    } else {
+      wishCard[i].style.display = "none";
+    }
+  }
+}
+//#endregion
+
+// #region get all wishes 
 get();
 
 function get() {
@@ -27,6 +67,12 @@ function getWish(wish) {
     const wishItem = template.cloneNode(true);
     const wishCard = wishItem.querySelector('div.wish-card');
     wishCard.setAttribute('data-wish-id', wish._id);
+
+    const fullListName = wish.whichList;
+    const trimmedListName = fullListName.slice(0, 5); 
+    const listNameBadge = wishItem.querySelector('span.list-name');
+    listNameBadge.textContent = trimmedListName;
+
 
     const editBtn = wishItem.querySelector('button.edit-btn');
     editBtn.setAttribute('id', `edit-${wish._id}`);
@@ -68,8 +114,10 @@ function getWish(wish) {
 
     document.querySelector(".wishWrapper").append(wishItem);
 }
+// #endregion
 
-// //#region edit form
+// #region edit wishes
+const editForm = document.querySelector("form#editForm");
 const editWishIdField = editForm.querySelector("#wishId");
 const editNameField = editForm.querySelector("#name");
 const editDescField = editForm.querySelector("#desc");
@@ -125,7 +173,6 @@ function fetchAndPopulate(id) {
         };
       
         const wishId = editWishIdField.value;
-        console.log(wishId);
     
         fetch(`https://wishlist-dcee.restdb.io/rest/wishes/${wishId}`,
         {
@@ -147,8 +194,9 @@ function fetchAndPopulate(id) {
         editForm.reset();
     });
     }
+//#endregion
 
-    //delete wish
+//#region delete wish
     function deleteWish(id) {
         fetch(`https://wishlist-dcee.restdb.io/rest/wishes/${id}`, {
           method: "delete",
@@ -164,44 +212,3 @@ function fetchAndPopulate(id) {
           });
       }
 
-
-// editForm.addEventListener("submit", e => {
-//     e.preventDefault();
-//     put();
-// })
-
-// function put() {
-//     let data = {
-//         name: editForm.elements.name.value,
-//         realname: editForm.elements.realname.value,
-//         age: editForm.elements.age.value,
-//         powers: editForm.elements.powers.value
-//     };
-
-//     let postData = JSON.stringify(data);
-
-//     const heroId = editForm.elements.id.value;
-
-//     fetch("https://class1909-30f9.restdb.io/rest/superheroes/" + heroId,
-//     {
-//         method: "put",
-//         headers: {
-//             "Content-Type": "application/json; charset=utf-8",
-//             "x-apikey": "5d88745afd86cb75861e25fc",
-//             "cache-control": "no-cache"
-//         },
-//         body: postData
-//     }
-// )
-// .then(d => d.json())
-// .then( updatedHero => {
-//     const parentElement = document.querySelector(`article[data-hero-id="${updatedHero._id}"]`);
-    
-//     parentElement.querySelector("h2").textContent = updatedHero.name;
-//     parentElement.querySelector(".realName").textContent = updatedHero.realname;
-//     parentElement.querySelector(".superPower").textContent = updatedHero.powers;
-//     parentElement.querySelector(".age").textContent = updatedHero.age;
-      
-//       editForm.reset();
-// });
-// }
