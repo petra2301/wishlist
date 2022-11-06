@@ -14,23 +14,20 @@ body {
   background-attachment: fixed;
 }
 
-#addWish {
+#addWish, #editWish {
   background-image: url(addbg1.jpg);
   background-position: top center;
 }
 
-#housewarming {
-  background-image: url(housebg-min.jpg);
-  background-position: center center;
-}
-
 #petra {
-  background-image: url(https://petragergely.dk/imgs/petra-bday-bg.jpg);
+  /* background-image: url(https://petragergely.dk/imgs/petra-bday-bg.jpg); */
+  background-image: url(christmas.jpg);
   background-position: top center;
 }
 
 #jakob {
-  background-image: url(https://petragergely.dk/imgs/jakob-bday-bg.jpg);
+  /* background-image: url(https://petragergely.dk/imgs/jakob-bday-bg.jpg); */
+  background-image: url(jakob-christmas.jpg);
   background-position: center center;
 }
 
@@ -71,7 +68,11 @@ p {
 }
 
 .img-wrapper {
+  width: 50%;
+  max-width: 200px;
   height: 200px;
+  /* position: absolute; */
+  margin: -100px auto -100px auto;
 }
 
 .gift-img {
@@ -80,9 +81,17 @@ p {
   height: 100%;
 }
 
-.hide {
-  display: none;
+.wish-card {
+  margin-top: 100px;
 }
+
+.wish-name {
+  margin-top: 130px;
+}
+
+/* .hide {
+  display: none;
+} */
 
 .cursor-pointer {
   cursor: pointer;
@@ -91,6 +100,11 @@ p {
 /* bootstrap overrides */
 .bg-dark {
   background-color: #242628eb!important;
+}
+
+.btn-close {
+  color: white;
+  background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
 }
 
 .form-control:focus {
@@ -110,8 +124,19 @@ p {
   background-color: #ffffff1a;
 }
 
-@media all and (max-width: 600px) {
-  .img-wrapper {
-    height: 100%;
-  }
+.modal-content {
+  background-color: #242628;
 }
+
+.modal-header {
+  background-color: #1d1f20;
+  border: none;
+}
+
+@media (min-width: 576px) {
+.modal-dialog {
+    max-width: 900px;
+    margin: 1.75rem auto;
+}
+}
+

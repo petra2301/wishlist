@@ -33,7 +33,21 @@ function post() {
   })
     .then(res => res.json())
     .then(data => {
-      console.log(data);
       addForm.reset();
+      showFeedback();
     });
+}
+
+// #region handling feedback alert
+const successAlert = document.querySelector("div.alert-success");
+
+function showFeedback() {
+  successAlert.classList.remove("d-none");
+  setTimeout(() => {
+    hideFeedback();
+  }, 5000);
+}
+
+function hideFeedback() {
+  successAlert.classList.add("d-none");
 }

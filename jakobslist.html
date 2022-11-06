@@ -23,27 +23,31 @@
       
     </main>
     <template>
-      <div class="col-12 col-lg-6 mb-5">
-        <div class="row">
-          <div class="col-4">
-            <div class="img-wrapper">
+      <div class="col-12 col-lg-6 mb-5 p-2 wish-card">
+          <div class="img-wrapper">
               <img src="" class="gift-img rounded" alt="" />
-            </div>
           </div>
-        <div class="col-8">
-          <h2 class="text-light"></h2>
-          <p class="text-light"></p>
-          <small class="text-light"></small>
-          <div class="btn-wrapper">
-          <a href="" target="_blank" class="hide button1 btn btn-light mt-3 mb-3">Bestil <i class="fas fa-external-link"></i></a>
-          <a href="" target="_blank" class="hide button2 btn btn-light mt-3 mb-3">Bestil (2)</a>
-          <a href="" target="_blank" class="hide button3 btn btn-light mt-3 mb-3">Bestil (3)</a>
-          <a href="" target="_blank" class="hide button4 btn btn-light mt-3 mb-3">Bestil (4)</a>
-        </div>
-        </div>
-        </div>
+          <div class="bg-dark rounded h-100">
+              <div class="row h-100 m-0 p-0">
+                  <div class="col-12 p-3">
+                      <h2 class="text-light text-center text-break wish-name"></h2>
+                      <p class="text-light text-center wish-desc"></p>
+                      <p class="small text-light text-center wish-price"></small>
+                      <div class="btn-wrapper d-flex justify-content-center">
+                          <a href="" target="_blank" class="d-none button1 btn btn-light mt-3 mb-3 me-1">Bestil <i
+                                  class="fas fa-external-link"></i></a>
+                          <a href="" target="_blank" class="d-none button2 btn btn-light mt-3 mb-3 me-1">Bestil
+                              (2)</a>
+                          <a href="" target="_blank" class="d-none button3 btn btn-light mt-3 mb-3 me-1">Bestil
+                              (3)</a>
+                          <a href="" target="_blank" class="d-none button4 btn btn-light mt-3 mb-3 me-1">Bestil
+                              (4)</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
-    </template>
+  </template>
     <script src="getGifts.js"></script>
   </body>
 </html>
